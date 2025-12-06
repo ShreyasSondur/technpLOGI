@@ -9,17 +9,17 @@ export default function Footer() {
 
       {/* LEFT BG IMAGE */}
       <div className="hidden md:block absolute left-0 bottom-0 opacity-60 w-48">
-        <Image src="/bg-left.svg" alt="Background Left" width={192} height={192} />
+        <Image src="/assets/bg-left.svg" alt="Background Left" width={192} height={192} />
       </div>
 
       {/* RIGHT BG IMAGE */}
       <div className="hidden md:block absolute right-0 bottom-0 opacity-60 w-48">
-        <Image src="/bg-right.svg" alt="Background Right" width={192} height={100} />
+        <Image src="/assets/bg-right.svg" alt="Background Right" width={192} height={100} />
       </div>
 
       {/* MIDDLE IMAGE */}
       <div className="absolute left-1/2 -translate-x-1/2 bottom-0 opacity-70 w-56 md:w-72">
-        <Image src="/middle.svg" alt="Center Graphic" width={288} height={288} />
+        <Image src="/assets/middle.svg" alt="Center Graphic" width={288} height={288} />
       </div>
 
       {/* MAIN CONTENT */}

@@ -5,31 +5,31 @@ const teamMembers = [
     name: "Abir",
     college: "Srinivas College",
     branch: "AIML BRANCH",
-    image: "/abir.png", // Ensure this image is in your public folder
+    image: "/team/abir.png", 
   },
   {
     name: "Lishmith",
     college: "Srinivas College",
     branch: "CSE BRANCH",
-    image: "/lishmith.png",
+    image: "/team/lishmith.png",
   },
   {
     name: "Shimaz",
     college: "Srinivas College",
     branch: "CSCB BRANCH",
-    image: "/shimaz.png",
+    image: "/team/shimaz.png",
   },
   {
     name: "Shreya",
     college: "Srinivas College",
     branch: "AIML BRANCH",
-    image: "/shreya.png",
+    image: "/team/shreya.png",
   },
   {
-    name: "Shreyas U",
+    name: "Shreyas",
     college: "Srinivas College",
     branch: "CSE BRANCH",
-    image: "/shreyass.png",
+    image: "/team/shreyas.png",
   },
 ];
 
