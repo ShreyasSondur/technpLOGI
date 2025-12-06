@@ -5,7 +5,7 @@ import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f9f0d2] text-black relative overflow-hidden border-t border-black/30 pt-14 pb-6">
+    <footer className="bg-[#f9f0d2] text-black relative overflow-hidden pt-10 pb-6">
 
       {/* LEFT BG IMAGE */}
       <div className="hidden md:block absolute left-0 bottom-0 opacity-60 w-48">
@@ -14,7 +14,7 @@ export default function Footer() {
 
       {/* RIGHT BG IMAGE */}
       <div className="hidden md:block absolute right-0 bottom-0 opacity-60 w-48">
-        <Image src="/bg-right.svg" alt="Background Right" width={192} height={192} />
+        <Image src="/bg-right.svg" alt="Background Right" width={192} height={100} />
       </div>
 
       {/* MIDDLE IMAGE */}
@@ -48,10 +48,10 @@ export default function Footer() {
         <div>
           <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-2 text-[15px] font-medium">
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Services</li>
-            <li>Contact Us</li>
+            <li className="cursor-pointer hover:underline">Home</li>
+            <li className="cursor-pointer hover:underline">About Us</li>
+            <li className="cursor-pointer hover:underline">Services</li>
+            <li className="cursor-pointer hover:underline">Contact Us</li>
           </ul>
         </div>
 
@@ -68,13 +68,15 @@ export default function Footer() {
 
         {/* LOGO */}
         <div className="flex flex-col md:items-end items-start">
-          <Image src="/logo.png" alt="Technologi Logo" width={192} height={96} />
+          {/* Ensure logo.png is in your public folder */}
+          <Image src="/logo.png" alt="Technologi Logo" width={192} height={96} className="object-contain" />
           <span className="text-sm mt-2 font-medium">International Private Limited</span>
         </div>
       </div>
 
       {/* COPYRIGHT */}
-      <div className="border-t border-black/40 mt-12 pt-4 text-center text-sm font-medium">
+      {/* Kept the border here for the copyright separation, or remove 'border-t' here too if you want it fully clean */}
+      <div className="border-t border-black/20 mt-12 pt-4 text-center text-sm font-medium opacity-80">
         © 2025 Technologi. All Rights Reserved.
       </div>
     </footer>
