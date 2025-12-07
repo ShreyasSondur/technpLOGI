@@ -74,18 +74,6 @@ export default function Hero() {
               Contact
             </a>
           </nav>
-
-          {/* MOBILE TOGGLE */}
-          <button
-            onClick={() => setThemeOn(!themeOn)}
-            className="mt-3 relative h-7 w-16 items-center rounded-full border border-yellow-600 bg-[#8a8436] transition"
-          >
-            <span
-              className={`h-5 w-5 rounded-full bg-[#fff25d] shadow-md transition-transform ${
-                themeOn ? "translate-x-9" : "translate-x-1"
-              }`}
-            />
-          </button>
         </div>
       )}
     </header>
