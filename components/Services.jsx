@@ -43,12 +43,12 @@ const Services = () => {
     <>
 
 
-      <section id="services" className="w-full min-h-[573px] flex items-center justify-center bg-gradient-to-b from-[#FFF4E0] via-[#FFE4F0] to-[#FFC0E0]">
-        <div className="w-full max-w-[1280px] h-[573px] mx-auto py-[60px] flex flex-col justify-center">
-          <div className="text-center mb-[45px]">
-            <h2 className="text-[38px] font-bold text-[#1F2937] m-0 tracking-tight font-sans">Services We Offer</h2>
+      <section id="services" className="w-full py-12 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-[#FFF4E0] via-[#FFE4F0] to-[#FFC0E0] flex items-center justify-center min-h-[800px]">
+        <div className="w-full max-w-[1280px] mx-auto flex flex-col justify-center">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">Services We Offer</h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mx-auto">
             {services.map((service) => {
               const IconComponent = service.icon;
               // Custom border-radius for each icon wrapper
@@ -59,15 +59,18 @@ const Services = () => {
                 'rounded-[55%_45%_48%_52%_/_52%_48%_45%_55%]'
               ];
               return (
-                <div key={service.id} className="bg-white/80 backdrop-blur-lg rounded-[24px] p-9 flex flex-col items-center text-center shadow-md transition-all duration-300 min-h-[305px] border border-white/30 hover:-translate-y-1 hover:shadow-xl hover:bg-white/90">
+                <div
+                  key={service.id}
+                  className="bg-white/80 backdrop-blur-lg rounded-[24px] p-6 sm:p-8 flex flex-col items-center text-center shadow-md transition-all duration-300 min-h-[260px] border border-white/30 hover:-translate-y-1 hover:shadow-xl hover:bg-white/90 w-full"
+                >
                   <div
-                    className={`w-[76px] h-[76px] flex items-center justify-center mb-6 flex-shrink-0 transition-transform duration-300 shadow-sm ${shapes[service.id-1]} group-hover:scale-105`}
+                    className={`w-16 h-16 sm:w-[76px] sm:h-[76px] flex items-center justify-center mb-6 flex-shrink-0 transition-transform duration-300 shadow-sm ${shapes[service.id-1]} group-hover:scale-105`}
                     style={{ backgroundColor: service.iconBg }}
                   >
-                    <IconComponent size={36} strokeWidth={2.5} style={{ color: service.iconColor }} />
+                    <IconComponent size={32} strokeWidth={2.5} style={{ color: service.iconColor }} />
                   </div>
-                  <h3 className="text-[19px] font-semibold text-[#0F172A] mb-[14px] leading-snug font-sans">{service.title}</h3>
-                  <p className="text-[13.5px] text-[#64748B] leading-7 font-normal text-center font-sans">{service.description}</p>
+                  <h3 className="text-base sm:text-lg md:text-xl font-semibold text-[#0F172A] mb-3 leading-snug font-sans">{service.title}</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-[#64748B] leading-6 font-normal text-center font-sans">{service.description}</p>
                 </div>
               );
             })}
