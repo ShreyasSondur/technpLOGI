@@ -43,8 +43,14 @@ const Services = () => {
     <>
 
 
-      <section id="services" className="w-full py-12 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-[#FFF4E0] via-[#FFE4F0] to-[#FFC0E0] flex items-center justify-center min-h-[800px]">
-        <div className="w-full max-w-[1280px] mx-auto flex flex-col justify-center">
+      <section id="services" className="relative w-full py-12 px-4 sm:px-6 md:px-8 bg-gradient-to-b from-[#fee2b7] to-[#ffc2e9] flex items-center justify-center min-h-[800px]">
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+          <img src="/assets/Vector7.svg" alt="" className="w-full h-auto block" />
+        </div>
+        <div className="absolute top-10 right-0 z-0">
+          <img src="/assets/kite.png" alt="" className="w-24 sm:w-32 md:w-48 lg:w-230 h-auto mt-10 object-contain opacity-90 mix-blend-multiply" />
+        </div>
+        <div className="relative z-10 w-full max-w-[1280px] mx-auto flex flex-col justify-center">
           <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">Services We Offer</h2>
           </div>

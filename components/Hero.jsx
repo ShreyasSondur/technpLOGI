@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <>
-      <header className="w-full bg-[#fff25d] shadow-md font-['Roboto_Condensed'] relative">
+      <header className="fixed top-0 left-0 z-50 w-full bg-[#fff25d] shadow-md font-['Roboto_Condensed']">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 relative">
           <div className="flex items-center">
             <img src="/logo.svg" alt="Logo" className="h-10 w-auto" />

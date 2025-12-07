@@ -5,7 +5,7 @@ import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#f9f0d2] text-black relative overflow-hidden pt-10 pb-6">
+    <footer className="bg-[#fff7c7] text-black relative overflow-hidden pt-10 pb-6">
 
       {/* LEFT BG IMAGE */}
       <div className="hidden md:block absolute left-0 bottom-0 opacity-60 w-48">

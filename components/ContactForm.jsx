@@ -35,9 +35,18 @@ export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-20 flex items-center justify-center"
+      className="relative w-full py-40 flex items-center justify-center bg-gradient-to-b from-[#ffc3e9] to-[#ffdbd6]"
     >
-      <div className="w-full max-w-lg px-6">
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
+        <img src="/assets/Vector8.svg" alt="" className="w-full h-auto block" />
+      </div>
+      <div className="absolute left-0 bottom-20 z-0">
+        <img src="/assets/kambala.png" alt="" className="w-48 md:w-64 lg:w-96 h-auto object-contain opacity-80 mix-blend-multiply" />
+      </div>
+      <div className="absolute right-0 bottom-20 z-0">
+        <img src="/assets/bowl.png" alt="" className="w-32 md:w-48 lg:w-72 h-auto object-contain opacity-80 mix-blend-multiply" />
+      </div>
+      <div className="relative z-10 w-full max-w-lg px-6">
         {/* Title */}
         <h2 className="mb-10 text-center text-4xl font-semibold tracking-[0.35em] text-[#3d2a28]">
           Contact Us
