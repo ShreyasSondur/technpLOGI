@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <>
-      <header className="w-full bg-[#fff25d] shadow-md font-['Roboto_Condensed']">
+      <header className="w-full bg-[#fff25d] shadow-md font-['Roboto_Condensed'] relative">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 relative">
           <div className="flex items-center">
             <img src="/logo.svg" alt="Logo" className="h-10 w-auto" />
@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {menuOpen && (
-          <div className="md:hidden px-6 pb-4 animate-fadeIn">
+          <div className="md:hidden absolute left-0 right-0 top-full bg-[#fff25d] px-6 pb-4 animate-fadeIn z-20 shadow-md">
             <nav className="flex flex-col gap-3 text-lg tracking-widest">
               <a href="#home" className="py-1" onClick={() => setMenuOpen(false)}>Home</a>
               <a href="#services" className="py-1" onClick={() => setMenuOpen(false)}>Services</a>
@@ -51,14 +51,16 @@ export default function Hero() {
         )}
       </header>
 
-      <section 
+      <section
         className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/assets/herobg.png')" }}
       >
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="relative z-10 text-center px-4">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4">TechnoLOGI</h1>
-          <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">International Private Limited</p>
+          <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">
+            International Private Limited
+          </p>
         </div>
       </section>
     </>
