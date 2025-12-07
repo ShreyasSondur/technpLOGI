@@ -1,23 +1,66 @@
 "use client";
+import { useState } from "react";
 
 export default function Hero() {
+  const [themeOn, setThemeOn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/assets/herobg.png')" }}
-    >
-      {/* Overlay for better text readability (optional) */}
-      <div className="absolute inset-0 bg-black/10"></div>
-      
-      {/* Content */}
-      <div className="relative z-10 text-center px-4">
-        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4">
-          TechnoLOGI
-        </h1>
-        <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">
-          International Private Limited
-        </p>
-      </div>
-    </section>
+    <>
+      <header className="w-full bg-[#fff25d] shadow-md font-['Roboto_Condensed']">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 relative">
+          <div className="flex items-center">
+            <img src="/logo.svg" alt="Logo" className="h-10 w-auto" />
+          </div>
+
+          <nav className="absolute left-1/2 hidden -translate-x-1/2 transform gap-16 text-lg tracking-widest md:flex">
+            <a href="#home" className="hover:opacity-80">Home</a>
+            <a href="#services" className="hover:opacity-80">Services</a>
+            <a href="#contact" className="hover:opacity-80">Contact</a>
+          </nav>
+
+          <button
+            onClick={() => setThemeOn(!themeOn)}
+            className="hidden md:flex relative h-7 w-16 items-center rounded-full border border-yellow-600 bg-[#8a8436] transition"
+          >
+            <span
+              className={`h-5 w-5 rounded-full bg-[#fff25d] shadow-md transition-transform ${
+                themeOn ? "translate-x-9" : "translate-x-1"
+              }`}
+            />
+          </button>
+
+          <button
+            className="flex flex-col gap-1 md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span className="h-0.5 w-7 bg-black"></span>
+            <span className="h-0.5 w-7 bg-black"></span>
+            <span className="h-0.5 w-7 bg-black"></span>
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="md:hidden px-6 pb-4 animate-fadeIn">
+            <nav className="flex flex-col gap-3 text-lg tracking-widest">
+              <a href="#home" className="py-1" onClick={() => setMenuOpen(false)}>Home</a>
+              <a href="#services" className="py-1" onClick={() => setMenuOpen(false)}>Services</a>
+              <a href="#contact" className="py-1" onClick={() => setMenuOpen(false)}>Contact</a>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      <section 
+        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/herobg.png')" }}
+      >
+        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4">TechnoLOGI</h1>
+          <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">International Private Limited</p>
+        </div>
+      </section>
+    </>
   );
 }
