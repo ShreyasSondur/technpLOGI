@@ -5,7 +5,7 @@ const teamMembers = [
     name: "Abir",
     college: "Srinivas College",
     branch: "AIML BRANCH",
-    image: "/team/abir.png", 
+    image: "/team/abir.png",
   },
   {
     name: "Lishmith",
@@ -35,30 +35,27 @@ const teamMembers = [
 
 export default function Team() {
   return (
-<<<<<<< Updated upstream
     <section className="relative bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7] py-40 px-4 md:px-8 border-t border-black/10">
+      {/* decorative vector at top */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <img src="/assets/Vector9.svg" alt="" className="w-full h-auto block" />
       </div>
+
       <div className="relative z-10 max-w-7xl mx-auto">
-        
-=======
-    <section className="bg-[#f9f0d2] py-20 px-4 md:px-8 border-t border-black/10">
-      <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">Meet Our Inters</h2>
-          </div>
->>>>>>> Stashed changes
-        {/* Optional Header - Uncomment if you want a title */}
-        {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black">Meet Our Team</h2> */}
+        {/* Header */}
+        <div className="text-center mb-10 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">
+            Meet Our Inters
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center">
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-white p-3 pb-6 w-full max-w-[280px] shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col"
+              className="bg-white p-3 pb-6 w-full max-w-[280px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col"
             >
-              {/* Image Container */}
+              {/* Image Container: parent must be relative when using Next/Image fill */}
               <div className="relative w-full aspect-[4/5] bg-gray-200 mb-4 overflow-hidden">
                 <Image
                   src={member.image}
@@ -72,9 +69,7 @@ export default function Team() {
               {/* Text Content */}
               <div className="text-center mt-auto">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">{member.name}</h3>
-                <p className="text-sm text-gray-700 font-medium leading-tight">
-                  {member.college}
-                </p>
+                <p className="text-sm text-gray-700 font-medium leading-tight">{member.college}</p>
                 <p className="text-[11px] text-gray-500 uppercase tracking-wider font-bold mt-1">
                   {member.branch}
                 </p>
