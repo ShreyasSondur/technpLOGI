@@ -35,12 +35,20 @@ const teamMembers = [
 
 export default function Team() {
   return (
+<<<<<<< Updated upstream
     <section className="relative bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7] py-40 px-4 md:px-8 border-t border-black/10">
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
         <img src="/assets/Vector9.svg" alt="" className="w-full h-auto block" />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto">
         
+=======
+    <section className="bg-[#f9f0d2] py-20 px-4 md:px-8 border-t border-black/10">
+      <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-10 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">Meet Our Inters</h2>
+          </div>
+>>>>>>> Stashed changes
         {/* Optional Header - Uncomment if you want a title */}
         {/* <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black">Meet Our Team</h2> */}
 

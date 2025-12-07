@@ -52,7 +52,7 @@ const Services = () => {
         </div>
         <div className="relative z-10 w-full max-w-[1280px] mx-auto flex flex-col justify-center">
           <div className="text-center mb-10 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font-sans">Services We Offer</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1F2937] m-0 tracking-tight font- tracking-[0.2em] text-[#3d2a28]">Services We Offer</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full mx-auto">
             {services.map((service) => {

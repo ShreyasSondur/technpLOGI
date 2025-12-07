@@ -80,7 +80,7 @@ export default function Hero() {
         </div>
 
         <div className="relative z-10 text-center px-4">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4">TechnoLOGI</h1>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4 font-helvetica">TechnoLOGI</h1>
           <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">
             International Private Limited
           </p>

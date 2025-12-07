@@ -48,7 +48,7 @@ export default function ContactForm() {
       </div>
       <div className="relative z-10 w-full max-w-lg px-6">
         {/* Title */}
-        <h2 className="mb-10 text-center text-4xl font-semibold tracking-[0.35em] text-[#3d2a28]">
+        <h2 className="mb-10 text-center text-4xl font-semibold tracking-[0.2em] text-[#3d2a28]">
           Contact Us
         </h2>
 
