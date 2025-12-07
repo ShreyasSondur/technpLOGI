@@ -20,6 +20,11 @@ const robotoCondensed = Roboto_Condensed({
 export const metadata = {
   title: "TechnoLOGI International Private Limited",
   description: "",
+  icons: {
+    icon: "public/logo.svg",
+    shortcut: "public/logo.svg",
+    apple: "public/logo.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
