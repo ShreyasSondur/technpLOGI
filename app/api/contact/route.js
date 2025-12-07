@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(req) {
   try {
@@ -11,12 +12,39 @@ export async function POST(req) {
         { status: 400 }
       );
     }
-    console.log("New contact:", body);
+
+    // ----- EMAIL SETUP -----
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.MAIL_USER,       // your Gmail
+        pass: process.env.MAIL_PASS,       // your App Password
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.MAIL_USER,
+      to: process.env.MY_RECEIVE_MAIL,     // your personal email
+      subject: "New Contact Form Submission",
+      text: `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Message:
+${message}
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    console.log("Mail sent!");
 
     return NextResponse.json({ success: true });
   } catch (err) {
+    console.error(err);
     return NextResponse.json(
-      { success: false, message: "Invalid request" },
+      { success: false, message: "Server error" },
       { status: 500 }
     );
   }
