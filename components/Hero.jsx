@@ -52,10 +52,33 @@ export default function Hero() {
       </header>
 
       <section
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/assets/herobg.png')" }}
+        className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#fdf897] to-[#fde8ac] overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/10"></div>
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="w-full h-full opacity-100" 
+            style={{ 
+              backgroundImage: "url('/assets/tiles.png')", 
+              backgroundRepeat: "repeat",
+              backgroundSize: "auto"
+            }} 
+          />
+        </div>
+
+        {/* Scenic Elements */}
+        <div className="absolute bottom-0 left-0 z-0">
+          <img src="/assets/build.png" alt="" className="w-32 sm:w-48 md:w-64 lg:w-180 h-auto object-contain" />
+        </div>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-0 top-50">
+          <img src="/assets/trees.png" alt="" className="w-40 sm:w-56 md:w-72 lg:w-250 h-auto object-contain" />
+        </div>
+        <div className="absolute bottom-0 right-24 sm:right-0 md:right-0 lg:right-0 z-0 top-60">
+          <img src="/assets/clocktower.png" alt="" className="w-20 sm:w-28 md:w-36 lg:w-100 h-auto object-contain" />
+        </div>
+        <div className="absolute bottom-0 right-0 z-0 top-120">
+          <img src="/assets/boat.png" alt="" className="w-32 sm:w-48 md:w-64 lg:w-150 h-auto object-contain" />
+        </div>
+
         <div className="relative z-10 text-center px-4">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-4">TechnoLOGI</h1>
           <p className="text-2xl md:text-3xl lg:text-4xl text-black font-medium">
