@@ -88,9 +88,9 @@ export default function Hero({ themeOn, setThemeOn }) {
         {menuOpen && (
           <div className="md:hidden absolute left-0 right-0 top-full bg-[#fff25d] px-6 pb-4 animate-fadeIn z-20 shadow-md">
             <nav className="flex flex-col gap-3 text-lg tracking-widest">
-              <a href="#home" className="py-1" onClick={() => setMenuOpen(false)}>Home</a>
-              <a href="#services" className="py-1" onClick={() => setMenuOpen(false)}>Services</a>
-              <a href="#contact" className="py-1" onClick={() => setMenuOpen(false)}>Contact</a>
+              <a href="#home" className="py-1 text-black " onClick={() => setMenuOpen(false)}>Home</a>
+              <a href="#services" className="py-1 text-black" onClick={() => setMenuOpen(false)}>Services</a>
+              <a href="#contact" className="py-1 text-black" onClick={() => setMenuOpen(false)}>Contact</a>
             </nav>
           </div>
         )}
