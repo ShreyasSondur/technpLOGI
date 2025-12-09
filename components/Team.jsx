@@ -26,7 +26,6 @@ const teamMembers = [
     image: "/team/shimaz.png",
   },
   {
-    
     name: "Shreyas",
     college: "Srinivas College",
     branch: "CSE BRANCH",
@@ -43,19 +42,31 @@ export default function Team({ themeOn }) {
           : "bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7]"
       }`}
     >
-      {/* VIDEO + 40% BLACK OVERLAY WHEN TOGGLED */}
+      {/* VIDEO BACKGROUND (DIFFERENT FOR MOBILE & DESKTOP) */}
       {themeOn && (
         <>
+          {/* Desktop / Tablet video */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+            className="hidden sm:block absolute inset-0 w-full h-full object-cover z-0 opacity-80"
           >
-            {/* change path if you have a different team video */}
             <source src="/videos/team-bg.mp4" type="video/mp4" />
           </video>
+
+          {/* Mobile video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="block sm:hidden absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+          >
+            <source src="/videos/clocktower-phone.mp4" type="video/mp4" />
+          </video>
+
           <div className="absolute inset-0 bg-black/40 z-0" />
         </>
       )}
