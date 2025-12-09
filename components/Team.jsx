@@ -79,7 +79,7 @@ export default function Team({ themeOn }) {
               themeOn ? "text-white" : "text-[#1F2937]"
             }`}
           >
-            Meet Our Inters
+            Meet Our Interns
           </h2>
         </div>
 
