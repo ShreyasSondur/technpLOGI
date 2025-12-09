@@ -290,7 +290,7 @@ export default function Team({ themeOn }) {
         </div>
 
         {/* TABLET & DESKTOP: GRID */}
-        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center mt-6">
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-5 gap-5 justify-items-center mt-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="w-full max-w-[260px]">
               <MemberCard member={member} />
