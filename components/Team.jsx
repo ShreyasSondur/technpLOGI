@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useCallback } from "react";
 import Image from "next/image";
 
 const teamMembers = [
@@ -33,13 +36,79 @@ const teamMembers = [
   },
 ];
 
+function MemberCard({ member }) {
+  return (
+    <div className="bg-white/90 rounded-2xl p-4 pb-6 w-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
+      {/* Image Container */}
+      <div className="relative w-full aspect-[4/5] bg-gray-200 mb-4 overflow-hidden rounded-xl">
+        <Image
+          src={member.image}
+          alt={member.name}
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
+        />
+      </div>
+
+      {/* Text Content */}
+      <div className="text-center mt-auto">
+        <h3 className="text-lg font-bold text-gray-900 mb-1">
+          {member.name}
+        </h3>
+        <p className="text-xs text-gray-700 font-medium leading-tight">
+          {member.college}
+        </p>
+        <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold mt-1">
+          {member.branch}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function Team({ themeOn }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState(null);
+
+  const maxIndex = teamMembers.length - 1;
+
+  const goTo = useCallback(
+    (idx) => {
+      if (idx < 0) idx = 0;
+      if (idx > maxIndex) idx = maxIndex;
+      setActiveIndex(idx);
+    },
+    [maxIndex]
+  );
+
+  const next = () => goTo(activeIndex + 1);
+  const prev = () => goTo(activeIndex - 1);
+
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartX === null) return;
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    const threshold = 50; // swipe sensitivity
+    if (Math.abs(diff) > threshold) {
+      if (diff < 0) next(); // swipe left
+      else prev(); // swipe right
+    }
+    setTouchStartX(null);
+  };
+
+  const dotBaseClasses = "h-2 w-2 rounded-full transition-all duration-300";
+  const activeDotClasses = themeOn ? "w-4 bg-white" : "w-4 bg-[#1F2937]";
+  const inactiveDotClasses = themeOn
+    ? "bg-white/40"
+    : "bg-[#1F2937]/30";
+
   return (
     <section
-      className={`relative py-40 px-4 md:px-8 border-t border-black/10 overflow-hidden ${
-        themeOn
-          ? "bg-black"
-          : "bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7]"
+      className={`relative py-16 sm:py-24 lg:py-40 px-4 md:px-8 border-t border-black/10 overflow-hidden ${
+        themeOn ? "bg-black" : "bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7]"
       }`}
     >
       {/* VIDEO BACKGROUND (DIFFERENT FOR MOBILE & DESKTOP) */}
@@ -84,7 +153,7 @@ export default function Team({ themeOn }) {
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12">
+        <div className="text-center mb-8 sm:mb-10">
           <h2
             className={`text-2xl sm:text-3xl md:text-4xl font-bold m-0 tracking-widest font-sans ${
               themeOn ? "text-white" : "text-[#1F2937]"
@@ -92,37 +161,129 @@ export default function Team({ themeOn }) {
           >
             Meet Our Interns
           </h2>
+          <p
+            className={`mt-2 text-xs sm:text-sm ${
+              themeOn ? "text-white/70" : "text-gray-700/80"
+            }`}
+          >
+            Swipe, use arrows, or tap the dots to explore the team.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center">
-          {teamMembers.map((member, index) => (
+        {/* MOBILE: CONTROLLED CAROUSEL */}
+        <div className="sm:hidden -mx-2">
+          <div className="relative px-6">
+            {/* Slides wrapper */}
             <div
-              key={index}
-              className="bg-white/90 p-3 pb-6 w-full max-w-[280px] shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col"
+              className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
-              {/* Image Container */}
-              <div className="relative w-full aspect-[4/5] bg-gray-200 mb-4 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 20vw"
-                />
-              </div>
+              {teamMembers.map((member, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-1">
+                  <MemberCard member={member} />
+                </div>
+              ))}
+            </div>
 
-              {/* Text Content */}
-              <div className="text-center mt-auto">
-                <h3 className="text-xl font-bold text-gray-900 mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-gray-700 font-medium leading-tight">
-                  {member.college}
-                </p>
-                <p className="text-[11px] text-gray-500 uppercase tracking-wider font-bold mt-1">
-                  {member.branch}
-                </p>
-              </div>
+            {/* Modern Arrows */}
+            {teamMembers.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={prev}
+                  disabled={activeIndex === 0}
+                  className={`absolute top-1/2 -translate-y-1/2 left-3 flex items-center justify-center 
+                    h-9 w-9 rounded-full backdrop-blur-md shadow-lg transition-all duration-300
+                    ${
+                      themeOn
+                        ? "bg-white/10 border border-white/20 text-white"
+                        : "bg-black/10 border border-black/20 text-gray-800"
+                    }
+                    ${
+                      activeIndex === 0
+                        ? "opacity-20 cursor-default"
+                        : "opacity-100 active:scale-90"
+                    }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15 19l-7-7 7-7"
+                    />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={next}
+                  disabled={activeIndex === maxIndex}
+                  className={`absolute top-1/2 -translate-y-1/2 right-3 flex items-center justify-center 
+                    h-9 w-9 rounded-full backdrop-blur-md shadow-lg transition-all duration-300
+                    ${
+                      themeOn
+                        ? "bg-white/10 border border-white/20 text-white"
+                        : "bg-black/10 border border-black/20 text-gray-800"
+                    }
+                    ${
+                      activeIndex === maxIndex
+                        ? "opacity-20 cursor-default"
+                        : "opacity-100 active:scale-90"
+                    }`}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
+
+          {/* Dots */}
+          <div className="mt-5 flex justify-center items-center gap-2">
+            {teamMembers.map((_, idx) => {
+              const isActive = idx === activeIndex;
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => goTo(idx)}
+                  className={`${dotBaseClasses} ${
+                    isActive ? activeDotClasses : inactiveDotClasses
+                  }`}
+                >
+                  <span className="sr-only">Go to slide {idx + 1}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* TABLET & DESKTOP: GRID */}
+        <div className="hidden sm:grid grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center mt-6">
+          {teamMembers.map((member, index) => (
+            <div key={index} className="w-full max-w-[260px]">
+              <MemberCard member={member} />
             </div>
           ))}
         </div>
