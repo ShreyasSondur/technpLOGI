@@ -71,9 +71,9 @@ export default function Footer({ themeOn }) {
           <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
           <ul className="space-y-2 text-[15px] font-medium">
             <li className="cursor-pointer hover:underline">Home</li>
-            <li className="cursor-pointer hover:underline">About Us</li>
             <li className="cursor-pointer hover:underline">Services</li>
             <li className="cursor-pointer hover:underline">Contact Us</li>
+            <li className="cursor-pointer hover:underline">Team</li>
           </ul>
         </div>
 
