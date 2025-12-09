@@ -39,8 +39,9 @@ const teamMembers = [
 function MemberCard({ member }) {
   return (
     <div className="bg-white/90 rounded-2xl p-4 pb-6 w-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col">
-      {/* Image Container */}
-      <div className="relative w-full aspect-[4/5] bg-gray-200 mb-4 overflow-hidden rounded-xl">
+
+      {/* Smaller Image */}
+      <div className="relative w-full aspect-[3/4] bg-gray-200 mb-3 overflow-hidden rounded-xl">
         <Image
           src={member.image}
           alt={member.name}
@@ -50,15 +51,15 @@ function MemberCard({ member }) {
         />
       </div>
 
-      {/* Text Content */}
+      {/* Bigger Text */}
       <div className="text-center mt-auto">
-        <h3 className="text-lg font-bold text-gray-900 mb-1">
+        <h3 className="text-xl font-extrabold text-gray-900 mb-1">
           {member.name}
         </h3>
-        <p className="text-xs text-gray-700 font-medium leading-tight">
+        <p className="text-sm text-gray-700 font-semibold leading-tight">
           {member.college}
         </p>
-        <p className="text-[10px] text-gray-500 uppercase tracking-wider font-bold mt-1">
+        <p className="text-xs text-gray-500 uppercase tracking-wider font-bold mt-1">
           {member.branch}
         </p>
       </div>
@@ -91,10 +92,11 @@ export default function Team({ themeOn }) {
   const handleTouchEnd = (e) => {
     if (touchStartX === null) return;
     const diff = e.changedTouches[0].clientX - touchStartX;
-    const threshold = 50; // swipe sensitivity
+    const threshold = 50;
+
     if (Math.abs(diff) > threshold) {
-      if (diff < 0) next(); // swipe left
-      else prev(); // swipe right
+      if (diff < 0) next();
+      else prev();
     }
     setTouchStartX(null);
   };
@@ -111,10 +113,9 @@ export default function Team({ themeOn }) {
         themeOn ? "bg-black" : "bg-gradient-to-b from-[#ffdfd7] to-[#fff7c7]"
       }`}
     >
-      {/* VIDEO BACKGROUND (DIFFERENT FOR MOBILE & DESKTOP) */}
+      {/* VIDEO BACKGROUND */}
       {themeOn && (
         <>
-          {/* Desktop / Tablet video */}
           <video
             autoPlay
             loop
@@ -125,7 +126,6 @@ export default function Team({ themeOn }) {
             <source src="/videos/team-bg.mp4" type="video/mp4" />
           </video>
 
-          {/* Mobile video */}
           <video
             autoPlay
             loop
@@ -140,7 +140,6 @@ export default function Team({ themeOn }) {
         </>
       )}
 
-      {/* DECORATIVE VECTOR ONLY WHEN NOT TOGGLED */}
       {!themeOn && (
         <div className="absolute top-0 left-0 w-full overflow-hidden leading-none">
           <img
@@ -152,10 +151,9 @@ export default function Team({ themeOn }) {
       )}
 
       <div className="relative z-10 max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-8 sm:mb-10">
           <h2
-            className={`text-2xl sm:text-3xl md:text-4xl font-bold m-0 tracking-widest font-sans ${
+            className={`text-2xl sm:text-3xl md:text-4xl font-bold tracking-widest ${
               themeOn ? "text-white" : "text-[#1F2937]"
             }`}
           >
@@ -170,10 +168,9 @@ export default function Team({ themeOn }) {
           </p>
         </div>
 
-        {/* MOBILE: CONTROLLED CAROUSEL */}
+        {/* MOBILE CAROUSEL */}
         <div className="sm:hidden -mx-2">
           <div className="relative px-6">
-            {/* Slides wrapper */}
             <div
               className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -187,9 +184,9 @@ export default function Team({ themeOn }) {
               ))}
             </div>
 
-            {/* Modern Arrows */}
             {teamMembers.length > 1 && (
               <>
+                {/* LEFT ARROW */}
                 <button
                   type="button"
                   onClick={prev}
@@ -223,6 +220,7 @@ export default function Team({ themeOn }) {
                   </svg>
                 </button>
 
+                {/* RIGHT ARROW */}
                 <button
                   type="button"
                   onClick={next}
@@ -259,7 +257,7 @@ export default function Team({ themeOn }) {
             )}
           </div>
 
-          {/* Dots */}
+          {/* DOTS */}
           <div className="mt-5 flex justify-center items-center gap-2">
             {teamMembers.map((_, idx) => {
               const isActive = idx === activeIndex;
@@ -279,7 +277,7 @@ export default function Team({ themeOn }) {
           </div>
         </div>
 
-        {/* TABLET & DESKTOP: GRID */}
+        {/* DESKTOP GRID */}
         <div className="hidden sm:grid grid-cols-2 lg:grid-cols-5 gap-6 justify-items-center mt-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="w-full max-w-[260px]">
