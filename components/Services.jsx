@@ -110,17 +110,7 @@ const Services = ({ themeOn }) => {
             return (
               <div
                 key={service.id}
-                className="
-                  group relative flex flex-col items-center text-center
-                  rounded-[32px] bg-white/85
-                  shadow-[0_18px_45px_rgba(15,23,42,0.16)]
-                  border border-white/70
-                  px-6 py-8 sm:px-8 sm:py-10
-                  min-h-[310px]
-                  max-w-sm w-full mx-auto
-                  transition-all duration-400 ease-[cubic-bezier(0.22,0.61,0.36,1)]
-                  hover:-translate-y-2 hover:shadow-[0_22px_55px_rgba(15,23,42,0.25)]
-                "
+                className="group relative flex flex-col items-center text-center rounded-[32px] bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.16)] border border-white/70 px-6 py-8 sm:px-8 sm:py-10 min-h-[310px] max-w-sm w-full mx-auto transition-all duration-400 ease-[cubic-bezier(0.22,0.61,0.36,1)] hover:-translate-y-2 hover:shadow-[0_22px_55px_rgba(15,23,42,0.25)]"
               >
                 {/* ICON CIRCLE */}
                 <div

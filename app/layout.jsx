@@ -20,21 +20,80 @@ const robotoCondensed = Roboto_Condensed({
 });
 
 export const metadata = {
-  title: "TechnoLOGI International Private Limited",
-  description: "",
+  metadataBase: new URL('https://technologi.in'),
+  title: {
+    default: "Technologi",
+    template: "%s | Technologi",
+  },
+  description: "Technologi provides web development, automation, SEO, and IT solutions to help businesses scale faster.",
+  keywords: ["IT services", "web development", "automation", "software solutions", "SEO services"],
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'Technologi',
+    description: 'Technologi provides web development, automation, SEO, and IT solutions to help businesses scale faster.',
+    url: 'https://technologi.in',
+    siteName: 'Technologi',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Technologi',
+    description: 'Technologi provides web development, automation, SEO, and IT solutions to help businesses scale faster.',
+  },
   icons: {
-    icon: "public/logo.svg",
-    shortcut: "public/logo.svg",
-    apple: "public/logo.svg",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Technologi",
+        "url": "https://technologi.in",
+        "logo": "https://technologi.in/logo.png",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "Contact@technologi.in",
+          "contactType": "customer service"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Door No. 16-6-388/45(1), 2nd Floor, Millennium Towers, Opp. Highland Hospital",
+          "addressLocality": "Mangalore",
+          "postalCode": "575002",
+          "addressCountry": "IN"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "name": "Technologi",
+        "url": "https://technologi.in",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://technologi.in/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  };
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${robotoCondensed.className} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <WhatsAppButton />
       </body>

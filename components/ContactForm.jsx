@@ -141,13 +141,7 @@ export default function ContactForm({ themeOn }) {
           <button
             type="submit"
             disabled={loading}
-            className="
-              w-full rounded-xl bg-[#3d2a28] py-3.5 text-lg 
-              font-bold text-white shadow-md 
-              transition hover:bg-[#4c3431] 
-              disabled:opacity-70 
-              cursor-pointer
-            "
+            className="w-full rounded-xl bg-[#3d2a28] py-3.5 text-lg font-bold text-white shadow-md transition hover:bg-[#4c3431] disabled:opacity-70 cursor-pointer"
           >
             {loading ? "Sending..." : "Submit"}
           </button>

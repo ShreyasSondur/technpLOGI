@@ -1,23 +1,12 @@
 // app/page.jsx
-"use client";
+import HomeClient from "../components/HomeClient";
 
-import { useState } from "react";
-import Hero from "../components/Hero";
-import Services from "../components/Services";
-import ContactForm from "../components/ContactForm";
-import Team from "../components/Team";
-import Footer from "../components/Footer";
+export const metadata = {
+  title: "IT Services & Automation Solutions for Businesses | Technologi",
+  description:
+    "Technologi provides web development, automation, SEO, and IT solutions to help businesses scale faster.",
+};
 
 export default function HomePage() {
-  const [themeOn, setThemeOn] = useState(false);
-
-  return (
-    <>
-      <Hero themeOn={themeOn} setThemeOn={setThemeOn} />
-      <Services themeOn={themeOn} />
-      <ContactForm themeOn={themeOn} />
-      <Team themeOn={themeOn} />
-      <Footer themeOn={themeOn} />
-    </>
-  );
+  return <HomeClient />;
 }

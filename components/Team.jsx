@@ -39,15 +39,7 @@ const teamMembers = [
   function MemberCard({ member }) {
     return (
       <div
-        className="
-          bg-white/90 rounded-2xl p-3 pb-5 w-full 
-          shadow-[0_8px_30px_rgba(0,0,0,0.12)] 
-          hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 
-          flex flex-col
-
-          max-w-[240px] mx-auto
-          sm:max-w-full
-        "
+        className="bg-white/90 rounded-2xl p-3 pb-5 w-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col max-w-[240px] mx-auto sm:max-w-full"
       >
         {/* Image Container */}
         <div className="relative w-full aspect-[4/5] bg-gray-200 mb-3 overflow-hidden rounded-xl">
