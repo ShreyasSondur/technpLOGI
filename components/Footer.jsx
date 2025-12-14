@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Instagram, Twitter, Linkedin, Facebook } from "lucide-react";
+import { Instagram, Linkedin, Facebook, X } from "lucide-react";
 
 export default function Footer({ themeOn }) {
   return (
@@ -58,7 +58,7 @@ export default function Footer({ themeOn }) {
               <Instagram size={18} /> <span>Instagram</span>
             </li>
             <li className="flex items-center gap-2">
-              <Twitter size={18} /> <span>Twitter</span>
+              <X size={18} /> <span>Twitter (X)</span>
             </li>
             <li className="flex items-center gap-2">
               <Facebook size={18} /> <span>Facebook</span>
