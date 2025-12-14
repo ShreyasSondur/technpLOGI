@@ -1,6 +1,8 @@
+
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import { Roboto_Condensed } from "next/font/google";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +36,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} ${robotoCondensed.className} antialiased`}
       >
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
